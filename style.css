@@ -1,0 +1,261 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body{
+    background: rgb(199, 198, 198);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    width: 100vw;
+}
+
+html,body{
+    font-size: 62.5%;
+    height: 100%;
+}
+
+html{
+    background: #eee;
+}
+
+.box{
+    width: 20vw;
+    height: 70vh;
+    border-radius: 12px;
+    box-shadow: 0 0.2rem 3rem rgba(0,0,0,0.2);
+    background: skyblue;
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0,0,0);
+    min-width: 20rem;
+    min-height: 35rem;
+}
+.bg-purple{
+ background: rgb(239, 162, 239);
+}
+.bg-dark{
+    background: rgb(173, 170, 173);
+}
+.bg-dark{
+    background: rgb(78, 78, 79);
+}
+.bg-sunny{
+    background: rgb(249, 249, 169);
+}
+
+.wave{
+    opacity: 0.3;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    background: white;
+    width: 50rem;
+    height: 50rem;
+    margin-left: -25rem;
+    margin-top: -25rem;
+    transform-origin: 50% 48%;
+    border-radius: 43%;
+    animation: drift 3000ms infinite linear;
+    z-index: 1;
+}
+
+.wave.-three{
+    animation: drift 5000ms infinite linear;
+    z-index: 2 !important;
+    opacity: 0.2;
+}
+
+.wave.-two{
+    animation: drift 7000ms infinite linear;
+    opacity: 0.1;
+    z-index: 3 !important;
+}
+
+.box::after{
+    content: "";
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 11;
+    transform: translate3d(0,0,0);
+}
+
+@keyframes drift{
+    from{
+        transform: rotate(0deg);
+    }
+    from{
+        transform: rotate(360deg);
+    }
+}
+.search{
+    height: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 4rem;
+    width: auto;
+}
+#search{
+    outline: none;
+    border: none;
+    padding: 0 1rem;
+    height: 28px;
+    width: 150px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+    background: rgba(173, 247, 62,.4);
+    color: rgb(79, 79, 245);
+}
+#srbtn{
+    outline: none;
+    border: none;
+    padding: 0 1rem;
+    height: 28px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: rgba(34, 104, 245, 0.4);
+    color: rgb(1, 1, 29);
+}
+#srbtn:hover{
+    background: rgba(60, 122, 245, 0.4);
+}
+#srbtn:active{
+    background: rgba(4, 30, 82, 0.4);
+    
+}
+
+
+
+
+.info{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 45%;
+    z-index: 4;
+}
+
+.location{
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: 800;
+    font-size: 3rem;
+    font-weight: 600;
+    line-height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.weather-ic{
+    animation: shake 2s linear infinite alternate;
+}
+
+@keyframes shake {
+   0%{
+    transform: translate(0);
+   }
+   20%,
+   40%,
+   60%,
+   80%{
+    transform: translate(.4rem);
+   }
+   10%,
+   30%,
+   50%{
+    transform: translate(-.4rem);
+   }
+   70%,
+   100%{
+    transform: translate(0);
+   }
+}
+
+#date{
+    text-align: center;
+    margin-top: 0.5rem;
+    color: gray;
+    font-size: 1.2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.temp{
+    margin-top: 2.5rem;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.minmaxtemp{
+    text-align: center;
+    margin-top: 0.3rem;
+    font-weight: 300;
+    font-size: 1.2rem;
+    color: rgb(90, 89, 89);
+}
+
+.weathercon{
+    height: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    font-size: 3rem;
+    margin-top: 4rem;
+}
+
+.weathercon i{
+    font-size: 6rem;
+    animation: i-anime 3s linear infinite alternate;
+}
+@keyframes i-anime {
+    from{
+        transform: scale(0.8);
+    }
+    to{
+        transform: scale(1.2);
+    }
+}
+
+ @media (max-width:600px) {
+    .box{
+        width: 90vw;
+        height: 80vh;
+    }
+
+    .wave{
+        top:85%
+    }
+    .weathercon{
+        font-size: 5rem;
+    }
+    .info{
+        font-size: 1.5rem;
+    }
+}
+
+
+
+
+@media (max-height:500px) {
+    .box{
+        height: 8vh;
+    }
+
+    .wave{
+        top:15%
+    }
+} 
+
+body>span{
+    width: 100vw;
+    text-align: center;
+    color: grey;
+}
